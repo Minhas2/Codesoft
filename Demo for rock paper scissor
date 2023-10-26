@@ -1,0 +1,25 @@
+Here's an example of how to play the game:
+
+Choose rock, paper, or scissors: Rock
+You chose rock.
+The computer chose scissors.
+You win!
+Your score: 1
+Computer's score: 0
+Do you want to play again? (yes/no): yes
+
+Choose rock, paper, or scissors: paper
+You chose paper.
+The computer chose rock.
+You win!
+Your score: 2
+Computer's score: 0
+Do you want to play again? (yes/no): yes
+
+Choose rock, paper, or scissors: scissors
+You chose scissors.
+The computer chose paper.
+You win!
+Your score: 3
+Computer's score: 0
+Do you want to play again? (yes/no): no
