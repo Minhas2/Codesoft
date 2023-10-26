@@ -1,0 +1,126 @@
+import json  # Import the JSON module for data storage
+
+# Define a class to represent a contact
+class Contact:
+    def __init__(self, name, phone, email, address):
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.address = address
+
+# Initialize a list to store contacts
+contacts = []
+
+# Function to add a new contact
+def add_contact():
+    name = input("Enter the name: ")
+    phone = input("Enter the phone number: ")
+    email = input("Enter the email: ")
+    address = input("Enter the address: ")
+    contact = Contact(name, phone, email, address)
+    contacts.append(contact)
+    print(f"Contact '{name}' added successfully!")
+
+# Function to view all contacts
+def view_contacts():
+    if not contacts:
+        print("No contacts found.")
+    else:
+        print("Contact List:")
+        for i, contact in enumerate(contacts, start=1):
+            print(f"{i}. {contact.name} - {contact.phone}")
+
+# Function to search for a contact by name or phone number
+def search_contact():
+    query = input("Enter a name or phone number to search: ")
+    results = []
+    for contact in contacts:
+        if query.lower() in contact.name.lower() or query in contact.phone:
+            results.append(contact)
+    if not results:
+        print("No matching contacts found.")
+    else:
+        print("Search results:")
+        for i, result in enumerate(results, start=1):
+            print(f"{i}. {result.name} - {result.phone}")
+
+# Function to update a contact
+def update_contact():
+    view_contacts()
+    try:
+        choice = int(input("Enter the number of the contact you want to update: "))
+        if 1 <= choice <= len(contacts):
+            contact = contacts[choice - 1]
+            print(f"Updating contact: {contact.name}")
+            contact.name = input("Enter the new name: ")
+            contact.phone = input("Enter the new phone number: ")
+            contact.email = input("Enter the new email: ")
+            contact.address = input("Enter the new address: ")
+            print(f"Contact '{contact.name}' updated successfully!")
+        else:
+            print("Invalid choice.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+# Function to delete a contact
+def delete_contact():
+    view_contacts()
+    try:
+        choice = int(input("Enter the number of the contact you want to delete: "))
+        if 1 <= choice <= len(contacts):
+            deleted_contact = contacts.pop(choice - 1)
+            print(f"Contact '{deleted_contact.name}' deleted successfully!")
+        else:
+            print("Invalid choice.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+# Function to save contacts to a file
+def save_contacts(filename):
+    with open(filename, 'w') as file:
+        json.dump([contact.__dict__ for contact in contacts], file)
+
+# Function to load contacts from a file
+def load_contacts(filename):
+    try:
+        with open(filename, 'r') as file:
+            data = json.load(file)
+            contacts.extend([Contact(**contact_data) for contact_data in data])
+    except FileNotFoundError:
+        print("Contacts file not found. Starting with an empty contact list.")
+
+# Main menu loop
+if __name__ == "__main__":
+    contacts_filename = "contacts.json"  # Define the file name for storing contacts
+    load_contacts(contacts_filename)  # Load contacts from a file (if it exists)
+    
+    while True:
+        print("\nContact Management System")
+        print("1. Add Contact")
+        print("2. View Contacts")
+        print("3. Search Contact")
+        print("4. Update Contact")
+        print("5. Delete Contact")
+        print("6. Save Contacts")
+        print("7. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            add_contact()
+        elif choice == '2':
+            view_contacts()
+        elif choice == '3':
+            search_contact()
+        elif choice == '4':
+            update_contact()
+        elif choice == '5':
+            delete_contact()
+        elif choice == '6':
+            save_contacts(contacts_filename)
+            print("Contacts saved successfully.")
+        elif choice == '7':
+            print("Exiting the Contact Management System.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
