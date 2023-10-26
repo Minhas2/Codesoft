@@ -1,0 +1,30 @@
+# Arithmetic Operations Calculator
+
+This is a simple Python program that allows you to perform basic arithmetic operations (addition, subtraction, multiplication, and division) on two numbers.
+
+## How to Use
+
+1. Run the Python script (`arithmetic_calculator.py`) in your preferred development environment or command line.
+2. You will be prompted to enter two numbers.
+3. Then, you will be asked to select an operation:
+   - Enter `1` for addition
+   - Enter `2` for subtraction
+   - Enter `3` for multiplication
+   - Enter `4` for division
+
+The program will perform the selected operation and display the result.
+
+**Note:** Division by zero is handled, so you won't encounter any errors when dividing by zero. If you attempt to divide by zero, the program will display an error message.
+
+## Example
+
+Here's an example of how to use the program:Enter the first number: 5
+Enter the second number: 3
+Select operation:
+
+1 Addition
+2Subtraction
+3 Multiplication
+4 Division
+Enter choice (1/2/3/4): 1
+5.0 + 3.0 = 8.0
