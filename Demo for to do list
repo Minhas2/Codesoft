@@ -1,0 +1,59 @@
+Here's an example of how to use the application:
+
+Options:
+
+1 List tasks
+2 Add task
+3 Mark task as completed
+4 Delete task
+5 Quit
+Enter your choice: 2
+Enter the task title: Buy groceries
+Task 'Buy groceries' added successfully!
+Options:
+
+
+1 List tasks
+2 Add task
+3 Mark task as completed
+4 Delete task
+5 Quit
+Enter your choice: 1
+To-Do List:
+Buy groceries - Not Completed
+Options:
+
+
+1 List tasks
+2 Add task
+3 Mark task as completed
+4 Delete task
+5 Quit
+Enter your choice: 3
+To-Do List:
+Buy groceries - Not Completed
+Enter the number of the task you want to mark as completed: 1
+Task 'Buy groceries' marked as completed!
+Options:
+
+
+1 List tasks
+2 Add task
+3 Mark task as completed
+4 Delete task
+5 Quit
+Enter your choice: 4
+To-Do List:
+Buy groceries - Completed
+Enter the number of the task you want to delete: 1
+Task 'Buy groceries' deleted successfully!
+Options:
+
+
+1 List tasks
+2 Add task
+3 Mark task as completed
+4 Delete task
+5 Quit
+Enter your choice: 5
+Goodbye!
